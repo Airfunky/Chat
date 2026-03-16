@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat</title>
+</head>
+<body>
+<section class="container">
+    <section class="left">
+    <header>
+        <h2>Chat</h2>
+    </header>
+    <main>
+
+        <div id="chat">
+            <div class="jolka">
+                <img src="Jolka.jpg" alt="Jolanta Nowak">
+                <p>Cześć idziesz jutro do kina?</p>
+            </div>
+
+            <div class="krzychu">
+                <img src="Krzysiek.jpg" alt="Krzysztof Łukasiński">
+                <p>Tak! a ty?</p>
+            </div>
+        </div>
+
+        <label for="text">Wypisz wiadomość</label>
+        <input type="text" id="text">
+        <button onclick="Wyslij()">Wyślij</button>
+        <br/>
+        <button onclick="losowa()">Generuj losową odpowiedź</button>
+
+    </main>
+    </section>
+
+    <aside>
+        <h3>Chaty</h3>
+        <ul>
+            <li>Ogólny</li>
+            <li>Tematyczne
+                <ol>
+                    <li>Turystyczny</li>
+                    <li>Żeglarski</li>
+                    <li>Filatestyczny</li>
+                    <li>Hodowla zwierzątek domowych</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>Uczestnicy</h3>
+        <p>Jolanta nowak</p>
+        <img src="Jolka.jpg" alt="Jolanta Nowak">
+        <p>Krzysztof Łukasiński</p>
+        <img src="Krzysiek.jpg" alt="Krzysztof Łukasiński">
+
+    </aside>
+</section>
+    <footer><h5>Chat wykonał: Lorenzo</h5></footer>
+
+<script>
+    function Wyslij(){
+        let text = document.getElementById('text').value
+       let blok = '<div class="jolka">' +
+                '<img src="Jolka.jpg" alt="Jolanta Nowak">' +
+                '<p>'+ text +'</p>' +
+            '</div>'
+        document.getElementById('chat').innerHTML += blok
+    }
+
+      function losowa(){
+        let odpowiedzi = ["Świetnie!","Kto gra główną rolę?","Lubisz filmy Tego reżysera?","Będę 10 minut wcześniej","Może kupimy sobie popcorn?","Ja wolę Colę","Zaproszę jeszcze Grześka","Tydzień temu też byłem w kinie na Diunie","Ja funduję bilety", "kys"]
+        let losowa = odpowiedzi[Math.floor(Math.random() * odpowiedzi.length)]
+       let blok = '<div class="krzychu">' +
+                '<img src="Krzysiek.jpg" alt="Krzysztof Łukasiński">' +
+                '<p>'+ losowa + '</p>' +
+            '</div>'
+        document.getElementById('chat').innerHTML += blok;
+    }
+
+</script>
+</body>
+</html>
